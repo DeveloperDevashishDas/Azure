@@ -23,7 +23,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     
     - name: Restore Nuget Packages
-      run:  nuget restore Azure.Azure.sln
+      run:  nuget restore Azure.sln
     
     - name: Build the solution
-      run: msbuild Azure.Azure.sln
+      run: msbuild Azure.sln
