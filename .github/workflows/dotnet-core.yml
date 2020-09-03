@@ -1,0 +1,29 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: [windows-latest]
+
+    steps:
+      #check out
+      
+    - uses: actions/checkout@v2 
+           
+    - name: Setup MSbuild
+      uses: microsoft/setup-msbuild@v1.0.1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    
+    - name: Restore Nuget Packages
+      run:  nuget restore Azure.Azure.sln
+    
+    - name: Build the solution
+      run: msbuild Azure.Azure.sln
